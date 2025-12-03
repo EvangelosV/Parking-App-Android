@@ -1,0 +1,36 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>345</x><y>160</y><w>256</w><h>136</h></coordinates><panel_attributes>_HomePageActivity_
+
+--
+-viewModel: HomePageViewModel 
+-first: static boolean 
+--
+#onCreate(savedInstanceState: Bundle): void 
++loginAction(): void 
++registerAction(): void 
++onBackPressed(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>369</x><y>432</y><w>200</w><h>104</h></coordinates><panel_attributes>_HomePageViewModel_
+
+--
+-presenter: HomePagePresenter 
+--
++HomePageViewModel() 
++getPresenter(): HomePagePresenter 
+#onCleared(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>465</x><y>288</y><w>24</w><h>160</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>481</x><y>352</y><w>80</w><h>24</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>681</x><y>400</y><w>264</w><h>128</h></coordinates><panel_attributes>_HomePagePresenter_
+
+--
+-view: HomePageView 
+--
++HomePagePresenter() 
++onLoginAction(): void 
++onRegisterAction(): void 
++setView(view: HomePageView): void 
++clearView(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>561</x><y>456</y><w>136</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>150;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>705</x><y>176</y><w>216</w><h>88</h></coordinates><panel_attributes>_HomePageView_
+
+--
+
+--
+-loginAction(): void 
+-registerAction(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>593</x><y>216</y><w>128</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>793</x><y>256</y><w>24</w><h>160</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;180</additional_attributes></element><element><id>Text</id><coordinates><x>593</x><y>432</y><w>80</w><h>24</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>753</x><y>352</y><w>80</w><h>24</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>465</x><y>72</y><w>24</w><h>104</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>369</x><y>56</y><w>232</w><h>24</h></coordinates><panel_attributes>androidx.appcompat.app.AppCompatActivity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>424</y><w>104</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>129</x><y>424</y><w>176</w><h>24</h></coordinates><panel_attributes>androidx.lifecycle.ViewModel</panel_attributes><additional_attributes></additional_attributes></element></diagram>

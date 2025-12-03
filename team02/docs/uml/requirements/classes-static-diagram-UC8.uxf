@@ -1,0 +1,48 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>516</x><y>87</y><w>126</w><h>84</h></coordinates><panel_attributes>
+_Payment_
+
+--
+-customer : Customer
+-reservation : Reservation
+-amount  : Double
+-paymentStatus : Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>318</x><y>87</y><w>126</w><h>84</h></coordinates><panel_attributes>
+_Renewal_
+
+--
+-transactionID : Double
+-customer : Customer
+-transactionDate : String
+-amount : Double
+-isSuccessful : Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>258</x><y>123</y><w>72</w><h>108</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;160;10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>438</x><y>117</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>165</y><w>324</w><h>66</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;90;10;50;510;50;510;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>225</y><w>126</w><h>72</h></coordinates><panel_attributes>"enumeration"
+_Status_
+
+--
+- PENDING
+- APPROVED
+- REJECTED </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>192</x><y>219</y><w>168</w><h>42</h></coordinates><panel_attributes>_BalanceController_
+
+--
+-AccountBalance : Double
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>264</x><y>255</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>186</x><y>303</y><w>168</w><h>66</h></coordinates><panel_attributes>
+_Customer_
+
+--
+-AccountBalance : Double
+-Vehicle : Vehicle
+-Reservations : List&lt;Reservation&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

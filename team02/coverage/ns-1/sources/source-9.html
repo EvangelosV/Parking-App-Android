@@ -1,0 +1,184 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > QRCode</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.example.parkingspotmanager.domain</a>
+</div>
+
+<h1>Coverage Summary for Class: QRCode (com.example.parkingspotmanager.domain)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">QRCode</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    34.6%
+  </span>
+  <span class="absValue">
+    (9/26)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.example.parkingspotmanager.domain;
+&nbsp;
+&nbsp;import android.graphics.Bitmap;
+&nbsp;import android.graphics.BitmapFactory;
+&nbsp;
+&nbsp;import com.fatboyindustrial.gsonjavatime.Converters;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import com.google.gson.GsonBuilder;
+&nbsp;import com.google.zxing.BarcodeFormat;
+&nbsp;import com.google.zxing.BinaryBitmap;
+&nbsp;import com.google.zxing.ChecksumException;
+&nbsp;import com.google.zxing.FormatException;
+&nbsp;import com.google.zxing.RGBLuminanceSource;
+&nbsp;import com.google.zxing.MultiFormatReader;
+&nbsp;import com.google.zxing.NotFoundException;
+&nbsp;import com.google.zxing.Reader;
+&nbsp;import com.google.zxing.WriterException;
+&nbsp;import com.google.zxing.client.j2se.MatrixToImageWriter;
+&nbsp;import com.google.zxing.common.BitMatrix;
+&nbsp;import com.google.zxing.common.HybridBinarizer;
+&nbsp;import com.google.zxing.qrcode.QRCodeWriter;
+&nbsp;
+&nbsp;import java.io.File;
+&nbsp;import java.io.IOException;
+&nbsp;import java.nio.file.FileSystems;
+&nbsp;import java.nio.file.Path;
+&nbsp;
+<b class="fc">&nbsp;public class QRCode {</b>
+&nbsp;    public static void generateQRCode(Object data, String username, int width, int height) {
+&nbsp;        try {
+<b class="fc">&nbsp;            Gson gson = Converters.registerLocalDateTime(new GsonBuilder()).create();</b>
+<b class="fc">&nbsp;            String dataString = gson.toJson(data);</b>
+&nbsp;
+&nbsp;            // Generate QR Code
+<b class="fc">&nbsp;            QRCodeWriter qrCodeWriter = new QRCodeWriter();</b>
+<b class="fc">&nbsp;            BitMatrix bitMatrix = qrCodeWriter.encode(dataString, BarcodeFormat.QR_CODE, width, height);</b>
+&nbsp;
+&nbsp;            // Save QR Code
+<b class="fc">&nbsp;            String outputDirectory = &quot;qrcodes/&quot;;</b>
+<b class="fc">&nbsp;            saveQRCode(bitMatrix, outputDirectory + username + &quot;.png&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (WriterException e) {</b>
+<b class="nc">&nbsp;            System.err.println(&quot;Error generating QR Code: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static void saveQRCode(BitMatrix bitMatrix, String filePath) {
+&nbsp;        try {
+<b class="fc">&nbsp;            Path path = FileSystems.getDefault().getPath(filePath);</b>
+<b class="fc">&nbsp;            MatrixToImageWriter.writeToPath(bitMatrix, &quot;PNG&quot;, path);</b>
+<b class="nc">&nbsp;        } catch (IOException e) {</b>
+<b class="nc">&nbsp;            System.err.println(&quot;Error saving QR Code: &quot; + e.getMessage());</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public static String readQRCode(String filePath) {
+&nbsp;        try {
+&nbsp;            // Read the image file
+<b class="nc">&nbsp;            File file = new File(filePath);</b>
+<b class="nc">&nbsp;            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());</b>
+&nbsp;
+<b class="nc">&nbsp;            int[] intArray = new int[bitmap.getWidth() * bitmap.getHeight()];</b>
+<b class="nc">&nbsp;            bitmap.getPixels(intArray, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());</b>
+<b class="nc">&nbsp;            RGBLuminanceSource source = new RGBLuminanceSource(bitmap.getWidth(), bitmap.getHeight(), intArray);</b>
+&nbsp;
+&nbsp;            // Create a BinaryBitmap from the LuminanceSource
+<b class="nc">&nbsp;            BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));</b>
+&nbsp;
+&nbsp;            // Use ZXing&#39;s MultiFormatReader to decode the image
+<b class="nc">&nbsp;            Reader reader = new MultiFormatReader();</b>
+<b class="nc">&nbsp;            return reader.decode(binaryBitmap).getText();</b>
+&nbsp;
+<b class="nc">&nbsp;        } catch (NotFoundException e) {</b>
+<b class="nc">&nbsp;            System.err.println(&quot;QR Code not found in the image.&quot;);</b>
+<b class="nc">&nbsp;        } catch (ChecksumException | FormatException e) {</b>
+<b class="nc">&nbsp;            System.err.println(&quot;Error decoding the QR Code.&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-12-10 18:44</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>1614</x><y>642</y><w>384</w><h>198</h></coordinates><panel_attributes>
+_Customer_
+
+--
+-AccountBalance : Double
+-Vehicle : Vehicle
+-Reservations : List&lt;Reservation&gt;
+-QRCode : String
+--
++Customer(String email, String phoneNumber, String username, String password, Vehicle vehicle)
++Customer(String firstname, String lastname, String address, String phoneNumber, String email)
++generateQRCode(): void
++getQRCode(): String
++setQRCode(String QRCode): void
++addReservation(Reservation reservation): void
++removeReservation(Reservation reservation): void
++getReservations(): List&lt;Reservation&gt;
++setAccountBalance(double accountBalance): void
++getAccountBalance(): double
++setVehicle(Vehicle vehicle): void
++getVehicle(): Vehicle
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2124</x><y>642</y><w>228</w><h>144</h></coordinates><panel_attributes>
+_Vehicle_
+
+--
+-LicensePlate : String
+-Brand : String
+-Model : String
+--
++Vehicle(String licensePlate, String brand, String model)
++getLicensePlate(): String
++setLicensePlate(String lisencePlate): void
++getBrand(): String
++setBrand(String brand): void
++getModel(): String
++setModel(String model): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1002</x><y>624</y><w>312</w><h>96</h></coordinates><panel_attributes>
+_Employee_
+
+--
+-Registrations: List&lt;Registration&gt;
+--
++Employee(String email, String phoneNumber, String username, String password)
++approveRegistration(Registration registration): void
++rejectRegistration(Registration registration)
+
+
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1062</x><y>1164</y><w>528</w><h>210</h></coordinates><panel_attributes>
+_ParkingSpace_
+
+--
+-parkingSpaceId : String
+-parkingBuilding : ParkingBuilding
+-isOccupied : boolean
+-isReserved : boolean
+-pricePerHour : double
+--
++ParkingSpace(String parkingSpaceId, ParkingBuilding parkingBuilding, boolean isOccupied, boolean isReserved, double pricePerHour)
++getParkingSpaceId() : String
++setParkingSpaceId(parkingSpaceId: String) : void
++getParkingBuilding() : ParkingBuilding
++setParkingBuilding(parkingBuilding: ParkingBuilding) : void
++isOccupied() : boolean
++setOccupied(occupied: boolean) : void
++isReserved() : boolean
++setReserved(reserved: boolean) : void
++getPricePerHour() : double
++setPricePerHour(pricePerHour: double) : void
++calculateAverageDailyOccupancy() : double
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1338</x><y>648</y><w>174</w><h>138</h></coordinates><panel_attributes>
+_Registration_
+
+--
+-RegistrationID : String
+-Status : Status
+-User: customer
+--
++Registration(Customer customer)
++getRegistrationID(): int
++setRegistrationID(int registrationID): void
++getUser(): User
++setUser(User customer): void
++getStatus(): status
++setStatus(Status status): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>630</y><w>744</w><h>78</h></coordinates><panel_attributes>
+_Management_
+
+--
+-statistics : Statistics
+--
++Management(String ManagementName, String ManagementEmail, String ManagementPhoneNumber, String ManagementAddress, String ManagementUsername, String ManagementPassword)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>972</x><y>342</y><w>414</w><h>216</h></coordinates><panel_attributes>
+_User_
+
+--
+-ID : String
+-FullName : String
+-Address : String
+-PhoneNumber : String
+-Email : String
+--
++User(String firstName, String lastName, String address, String phoneNumber, String email, String username)
++User(String firstName, String lastName, String address, String phoneNumber, String email)
++User(String Email, String PhoneNumber, String Username, String Password)
++getFirstName(): String
++setFirstName(String FirstName): void
++getLastName(): String
++setLastName(String LastName): void
++getAddress(): String
++setAddress(String Address): void
++getPhoneNumber(): String
++setPhoneNumber(String PhoneNumber): void 
++getEmail(): String
++setEmail(String Email): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>588</x><y>384</y><w>174</w><h>102</h></coordinates><panel_attributes>
+_Credentials_
+
+--
+-Username : String
+-Password : String
+--
++ getUsername(): String
++ setUsername(String Username): void
++ getPassword(): String
++ setPassword(String Passowrd): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1380</x><y>552</y><w>246</w><h>102</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;390;150</additional_attributes></element><element><id>Relation</id><coordinates><x>1158</x><y>552</y><w>18</w><h>84</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>852</x><y>552</y><w>132</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;10;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1500</x><y>906</y><w>300</w><h>240</h></coordinates><panel_attributes>
+_Reservation_
+
+--
+-ReservationID : String
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-entryDateTime : LocalDateTime
+-ReservedExitTime : LocalDateTime
+-ReservedChargeAmount  : Double
+--
++getReservationID(): String
++setReservationID(String reservationID): void
++getCustomer(): Customer
++setCustomer(Customer customer): void
++getEntryTime(): LocalDateTime
++setEntryTime(LocalDateTime entryDateTime): void
++getReservedExitTime(): LocalDateTime
++setReservedExitTime(LocalDateTime ReservedExitTime): void
++getAssignedParkingSpace(): ParkingSpace
++setAssignedParkingSpace(ParkingSpace assignedParkingSpace):void
++getAssignedParkingBuilding(): ParkingBuilding 
++setAssignedParkingBuilding(ParkingBuilding assignedParkingBuilding): void
++getReservedChargeAmount(): double
++setReservedChargeAmount(double ReservedChargeAmount): void
+
+
+
+
+
+
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2208</x><y>330</y><w>324</w><h>246</h></coordinates><panel_attributes>
+_Payment_
+
+--
+-customer : Customer
+-reservation : Reservation
+-amount  : Double
+-paymentStatus : Status
+--
++Payment(Customer customer, Reservation reservation, double amount)
++Payment(Customer customer, ParkingTicket parkingTicket, double amount)
++Payment(Customer customer, ReservationTicket reservationTicket, double amount)
++getCustomer(): Customer
++setCustomer(Customer customer): void
++getReservation(): Reservation
++setReservation(Reservation reservation): void
++getParkingTicket(): ParkingTicket
++setParkingTicket(ParkingTicket parkingTicket): void
++getReservationTicket(): ReservationTicket
++setReservationTicket(ReservationTicket reservationTicket): void
++getAmount(): double
++setAmount(double amount): void
++getPaymentStatus(): Status
++setPaymentStatus(Status paymentStatus): void
+++getPaymentDate(): LocalDateTime
++setPaymentDate(LocalDateTime renewalDate): void
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1692</x><y>1158</y><w>666</w><h>246</h></coordinates><panel_attributes>
+_ParkingTicket_
+
+--
+-ParkingTicketID : String
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-entryTime : LocalDateTime
+-exitTime : LocalDateTime
+-chargeAmount : Double
+--
++ParkingTicket(String parkingTicketID, ParkingSpace parkingSpace, ParkingBuilding parkingBuilding, LocalDateTime entryTime, LocalDateTime exitTime, double chargeAmount)
++getParkingTicketID(): String
++setParkingTicketID(String parkingTicketID): void
++getParkingSpace(): ParkingSpace
++setParkingSpace(ParkingSpace parkingSpace): void
++getParkingBuilding(): ParkingBuilding
++setParkingBuilding(ParkingBuilding parkingBuilding): void
++getEntryTime(): LocalDateTime
++setEntryTime(LocalDateTime entryTime): void
++getExitTime(): LocalDateTime
+setExitTime(LocalDateTime exitTime): void
++getChargeAmount(): Double
++setChargeAmount(double chargeAmount): void
++getDuration(): Duration</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1818</x><y>366</y><w>258</w><h>222</h></coordinates><panel_attributes>
+_Renewal_
+
+--
+-transactionID : Double
+-customer : Customer
+-transactionDate : LocalDateTime
+-amount : Double
+-isSuccessful : Boolean
+-payment: Payment
+--
++Renewal(String RenewalID, Customer customer, double amount)
++getRenewalID(): String
++setRenewalID(String RenewalID): void
++getCustomer(): Customer
++setCustomer(Customer customer): void
++getAmount(): double
++setAmount(double amount): void
++getRenewalDate(): LocalDateTime
++setRenewalDate(LocalDateTime renewalDate): void
++getRenewalStatus(): Status
++setRenewalStatus(Status renewalStatus): void
++getPayment: Payment
++setPayment(Payment payment): void
++processRenewal(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1674</x><y>834</y><w>24</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1722</x><y>480</y><w>108</w><h>174</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;270;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1734</x><y>570</y><w>636</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;120;10;60;1030;60;1030;11</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1488</x><y>480</y><w>126</w><h>66</h></coordinates><panel_attributes>"enumeration"
+_Status_
+
+--
+- PENDING
+- APPROVED
+- REJECTED </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1584</x><y>1194</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>1164</y><w>474</w><h>192</h></coordinates><panel_attributes>
+_ParkingBuilding_
+
+--
+-buildingId : String
+-buildingAddress : String
+-openingHours : String
+-closingHours : String
+-postalCode : String
+--
++ParkingBuilding(String buildingId, String buildingAddress, String openingHours, String closingHours, String postalCode)
++getBuildingId() : String
++setBuildingId(buildingId: String) : void
++getBuildingAddress() : String
++setBuildingAddress(buildingAddress: String) : void
++getOpeningHours() : String
++setOpeningHours(openingHours: String) : void
++getClosingHours() : String
++setClosingHours(closingHours: String) : void
++getPostalCode() : String
++setPostalCode(postalCode: String) : void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>822</x><y>918</y><w>558</w><h>180</h></coordinates><panel_attributes>
+_ReservationTicket_
+
+--
+-ReservationTicketID : String
+-reservation : Reservation
+-exitTime : LocalDateTime
+-chargeAmount : double
+--
++ReservationTicket(String ReservationTicketID, Reservation reservation, LocalDateTime startTime, LocalDateTime exitTime, double chargeAmount)
++getReservationTicketID() : String
++setReservationTicketID(ReservationTicketID: String) : void
++getReservation() : Reservation
++setReservation(reservation: Reservation) : void
++getExitTime() : LocalDateTime
++setExitTime(exitTime: LocalDateTime) : void
++getChargeAmount() : double
++setChargeAmount(chargeAmount: double) : void
++getDuration() : Duration
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1374</x><y>996</y><w>138</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;210;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1842</x><y>834</y><w>24</w><h>336</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;10;10;540</additional_attributes></element><element><id>Relation</id><coordinates><x>1272</x><y>1092</y><w>24</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>756</x><y>438</y><w>228</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes><additional_attributes>360;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1506</x><y>726</y><w>120</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes><additional_attributes>180;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>1248</y><w>174</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=*</panel_attributes><additional_attributes>10;10;270;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1992</x><y>732</y><w>144</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=1..*
+</panel_attributes><additional_attributes>10;20;220;20</additional_attributes></element><element><id>Relation</id><coordinates><x>2070</x><y>474</y><w>150</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=1
+m2=1</panel_attributes><additional_attributes>10;10;230;10</additional_attributes></element></diagram>

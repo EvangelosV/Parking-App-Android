@@ -1,0 +1,117 @@
+<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>470</x><y>262</y><w>140</w><h>55</h></coordinates><panel_attributes>
+_Customer_
+
+--
+-AccountBalance : Double
+-Vehicle : Vehicle
+-Reservations : List&lt;Reservation&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>245</x><y>517</y><w>140</w><h>70</h></coordinates><panel_attributes>
+_ParkingSpace_
+
+--
+-SpaceID : String
+-pricePerHour : Double
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>115</x><y>242</y><w>145</w><h>55</h></coordinates><panel_attributes>
+_SearchParking_
+
+--
+-ParkingSpaces : List&lt;ParkingSpace&gt;
+-ParkingBuildings : List&lt;ParkingBuilding&gt;
+-AvailableParkingsList : List&lt;ParkingSpace&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>115</x><y>347</y><w>145</w><h>70</h></coordinates><panel_attributes>
+_SearchCriteria_
+
+--
+-location : String 
+-postalCode : String       
+-openingHour : String
+-closingHour : String
+-duration : String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>292</y><w>35</w><h>65</h></coordinates><panel_attributes>lt=-
+ uses &gt;</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>412</y><w>140</w><h>115</h></coordinates><panel_attributes>lt=-
+finds &gt;</panel_attributes><additional_attributes>260;10;10;210</additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>372</y><w>140</w><h>85</h></coordinates><panel_attributes>
+_Reservation_
+
+--
+-customer : Customer
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-startTime : String
+-endTime : String
+-chargeAmount  : Double
+-QRcode : QRCode</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>745</x><y>82</y><w>105</w><h>70</h></coordinates><panel_attributes>
+_Payment_
+
+--
+-customer : Customer
+-reservation : Reservation
+-amount  : Double
+-paymentStatus : Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>470</x><y>512</y><w>140</w><h>85</h></coordinates><panel_attributes>
+_ParkingTicket_
+
+--
+-ticketID : String
+-customer : Customer
+-entryDateTime : String
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-exitDateTime : String
+-chargeAmount : Double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>580</x><y>82</y><w>105</w><h>70</h></coordinates><panel_attributes>
+_Renewal_
+
+--
+-transactionID : Double
+-customer : Customer
+-transactionDate : String
+-amount : Double
+-isSuccessful : Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>535</x><y>312</y><w>40</w><h>70</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+makes &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>112</y><w>60</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;160;10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>535</x><y>452</y><w>35</w><h>70</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+  has &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>107</y><w>75</w><h>25</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>147</y><w>270</w><h>55</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;90;10;50;510;50;510;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>202</y><w>105</w><h>55</h></coordinates><panel_attributes>"enumeration"
+_Status_
+
+--
+- PENDING
+- APPROVED
+- REJECTED </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>542</y><w>100</w><h>25</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+ refers to </panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>517</y><w>125</w><h>70</h></coordinates><panel_attributes>
+_ParkingBuilding_
+
+--
+-BuildingID : String              
+-location : String 
+-postalCode : String       
+-openingHours : String   
+-availableParkingSpaces : Int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>180</x><y>412</y><w>140</w><h>115</h></coordinates><panel_attributes>lt=-
+         finds &gt;</panel_attributes><additional_attributes>10;10;260;210</additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>547</y><w>135</w><h>25</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+has</panel_attributes><additional_attributes>10;20;250;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>475</x><y>192</y><w>140</w><h>35</h></coordinates><panel_attributes>_BalanceController_
+
+--
+-AccountBalance : Double
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>535</x><y>222</y><w>15</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element></diagram>

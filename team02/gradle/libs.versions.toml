@@ -1,0 +1,49 @@
+[versions]
+agp = "8.7.2"
+core = "3.5.0"
+coreVersion = "3.4.0"
+gson = "2.10.1"
+gsonJavatimeSerialisers = "1.1.2"
+javafxGraphics = "17"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+activity = "1.9.3"
+constraintlayout = "2.2.0"
+mockitoCore = "4.8.1"
+junitJupiter = "5.8.1"
+mockitoMockitoCore = "4.6.1"
+robolectric = "4.2.1"
+robolectricVersion = "4.10"
+zxingAndroidEmbedded = "4.3.0"
+testng = "6.9.6"
+
+[libraries]
+core = { module = "com.google.zxing:core", version.ref = "core" }
+core-v340 = { module = "com.google.zxing:core", version.ref = "coreVersion" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+gson-javatime-serialisers = { module = "com.fatboyindustrial.gson-javatime-serialisers:gson-javatime-serialisers", version.ref = "gsonJavatimeSerialisers" }
+javafx-graphics = { module = "org.openjfx:javafx-graphics", version.ref = "javafxGraphics" }
+javase = { module = "com.google.zxing:javase", version.ref = "core" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiter" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junitJupiter" }
+mockito-core-v461 = { module = "org.mockito:mockito-core", version.ref = "mockitoMockitoCore" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+robolectric-v410 = { module = "org.robolectric:robolectric", version.ref = "robolectricVersion" }
+zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingAndroidEmbedded" }
+testng = { group = "org.testng", name = "testng", version.ref = "testng" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+

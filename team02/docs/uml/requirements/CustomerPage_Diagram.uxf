@@ -1,0 +1,58 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>390</x><y>198</y><w>198</w><h>192</h></coordinates><panel_attributes>_CustomerPageActivity_
+
+--
+-viewModel: CustomerPageViewModel 
+-btnSearchParkingSpace: Button 
+-btnShowQRCode: Button 
+-btnRenewal: Button 
+-btnLogout: Button 
+-txtCustomerUsername: TextView 
+-popup: static AlertDialog 
+-CUSTOMER_USERNAME_EXTRA: static final String 
+-CUSTOMER_BALANCE_EXTRA: static final String 
+-customerUsername: String 
+-accountBalance: double 
+--
+#onCreate(savedInstanceState: Bundle): void 
++toSearchParking(): void 
++toShowQRCode(): void 
++toRenewal(): void 
++toLogout(): void 
++onClick(view: View): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>462</y><w>168</w><h>78</h></coordinates><panel_attributes>_CustomerPageViewModel_
+
+--
+-presenter: CustomerPagePresenter 
+--
++CustomerPageViewModel() 
++getPresenter(): CustomerPagePresenter 
++onCleared(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>384</y><w>18</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>498</x><y>426</y><w>60</w><h>18</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>642</x><y>438</y><w>222</w><h>180</h></coordinates><panel_attributes>_CustomerPagePresenter_
+
+--
+-customerDAO: CustomerDAO 
+-view: CustomerPageView 
+-customer: Customer 
+--
++CustomerPagePresenter() 
++findCustomerInfo(customerUsername: String): Customer 
++setCustomerDAO(customerDAO: CustomerDAO): void 
++getCustomerUsername(): String 
++onSearchParkingSpace(): void 
++onShowQRCode(): void 
++onRenewal(): void 
++onLogout(): void 
++clearView(): void 
++setView(view: CustomerPageView): void 
++getView(): CustomerPageView 
++getCustomerDAO(): CustomerDAO 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>480</y><w>84</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>120;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>270</y><w>162</w><h>84</h></coordinates><panel_attributes>_CustomerPageView_
+
+--
+
+--
+-toSearchParking(): void 
+-toShowQRCode(): void 
+-toRenewal(): void 
+-toLogout(): void 
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>582</x><y>300</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>732</x><y>348</y><w>18</w><h>102</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;150</additional_attributes></element><element><id>Text</id><coordinates><x>582</x><y>462</y><w>60</w><h>18</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>702</x><y>402</y><w>60</w><h>18</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>162</y><w>18</w><h>48</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>408</x><y>150</y><w>168</w><h>18</h></coordinates><panel_attributes>androidx.appcompat.app.AppCompatActivity</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>456</y><w>78</w><h>18</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>234</x><y>456</y><w>132</w><h>18</h></coordinates><panel_attributes>androidx.lifecycle.ViewModel</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>864</x><y>456</y><w>60</w><h>18</h></coordinates><panel_attributes>Includes</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>924</x><y>462</y><w>78</w><h>18</h></coordinates><panel_attributes>CustomerDAO</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>858</x><y>468</y><w>78</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element></diagram>

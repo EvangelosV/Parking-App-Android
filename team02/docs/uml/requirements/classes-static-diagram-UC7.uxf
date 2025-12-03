@@ -1,0 +1,97 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><element><id>UMLClass</id><coordinates><x>156</x><y>348</y><w>168</w><h>102</h></coordinates><panel_attributes>
+_Reservation_
+
+--
+-customer : Customer
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-startTime : String
+-endTime : String
+-chargeAmount  : Double
+-QRcode : QRCode</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>486</x><y>0</y><w>126</w><h>84</h></coordinates><panel_attributes>
+_Payment_
+
+--
+-customer : Customer
+-reservation : Reservation
+-amount  : Double
+-paymentStatus : Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>516</y><w>168</w><h>102</h></coordinates><panel_attributes>
+_ParkingTicket_
+
+--
+-ticketID : String
+-customer : Customer
+-entryDateTime : String
+-assignedParkingSpace : ParkingSpace
+-assignedParkingBuilding : ParkingBuilding
+-exitDateTime : String
+-chargeAmount : Double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>0</y><w>126</w><h>84</h></coordinates><panel_attributes>
+_Renewal_
+
+--
+-transactionID : Double
+-customer : Customer
+-transactionDate : String
+-amount : Double
+-isSuccessful : Boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>276</y><w>48</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+makes &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>36</y><w>72</w><h>108</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;160;10;10;100;10</additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>444</y><w>42</w><h>84</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+  has &gt;</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>408</x><y>30</y><w>90</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>78</y><w>324</w><h>66</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+</panel_attributes><additional_attributes>10;90;10;50;510;50;510;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>138</y><w>126</w><h>72</h></coordinates><panel_attributes>"enumeration"
+_Status_
+
+--
+- PENDING
+- APPROVED
+- REJECTED </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>162</x><y>132</y><w>168</w><h>42</h></coordinates><panel_attributes>_BalanceController_
+
+--
+-AccountBalance : Double
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>168</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=-
+m1=
+m2=
+</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>156</x><y>216</y><w>168</w><h>66</h></coordinates><panel_attributes>
+_Customer_
+
+--
+-AccountBalance : Double
+-Vehicle : Vehicle
+-Reservations : List&lt;Reservation&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>552</y><w>108</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>516</y><w>126</w><h>102</h></coordinates><panel_attributes>
+_QRCode_
+
+--
+-customer:Customer
+-code : String
+-isValid : Boolean
+-isUsed : Boolean
+-reservation : Reservation</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>318</x><y>246</y><w>192</w><h>282</h></coordinates><panel_attributes>lt=-
+has &gt;
+m1=1
+m2=1
+</panel_attributes><additional_attributes>10;10;270;10;270;450</additional_attributes></element><element><id>UMLClass</id><coordinates><x>624</x><y>540</y><w>126</w><h>60</h></coordinates><panel_attributes>
+_QRScanner_
+
+--
+-scannerID : String
+-scannedCode : String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>534</x><y>558</y><w>102</w><h>30</h></coordinates><panel_attributes>lt=-
+m1=*
+m2=1
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element></diagram>

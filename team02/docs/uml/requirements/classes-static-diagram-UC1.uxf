@@ -1,0 +1,73 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>368</x><y>236</y><w>224</w><h>88</h></coordinates><panel_attributes>
+_Customer_
+
+--
+-AccountBalance : Double
+-Vehicle : Vehicle
+-Reservations : List&lt;Reservation&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>436</y><w>224</w><h>88</h></coordinates><panel_attributes>
+_Vehicle_
+
+--
+-LicensePlate : String
+-Brand : String
+-Model : String
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>316</y><w>48</w><h>136</h></coordinates><panel_attributes>lt=-
+m1=1..*
+m2=1..*
+owns</panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>236</y><w>224</w><h>88</h></coordinates><panel_attributes>
+_Registration_
+
+--
+-id : String
+-Status : Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>368</x><y>36</y><w>224</w><h>96</h></coordinates><panel_attributes>
+_Credentials_
+
+--
+-Username : String
+-Password : String
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>216</x><y>268</y><w>168</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+ has done </panel_attributes><additional_attributes>190;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>744</x><y>236</y><w>224</w><h>88</h></coordinates><panel_attributes>
+_LogInSystem_
+
+--
+-RegisteredCustomers : List&lt;Customer&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>584</x><y>268</y><w>176</w><h>40</h></coordinates><panel_attributes>lt=-
+m1=    1
+m2=1
+signs in </panel_attributes><additional_attributes>10;20;200;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>784</x><y>396</y><w>168</w><h>128</h></coordinates><panel_attributes>
+_Reservation_
+
+--
+-customer : Customer
+-parkingSpace : ParkingSpace
+-startTime : String
+-endTime : String
+-totalCost  : Double
+-QRcode : QRCode</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>36</y><w>168</w><h>88</h></coordinates><panel_attributes>"enumeration"
+_Status_
+
+--
+- PENDING
+- APPROVED
+- REJECTED </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>124</y><w>40</w><h>128</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+has </panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>436</y><w>224</w><h>88</h></coordinates><panel_attributes>
+_RegistrationSystem_
+
+--
+-RegisteredCustomers : List&lt;Customer&gt;
+-PendingRegistrations: List&lt;Registration&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>584</x><y>316</y><w>216</w><h>96</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+   reserves</panel_attributes><additional_attributes>10;10;250;100</additional_attributes></element><element><id>Relation</id><coordinates><x>104</x><y>316</y><w>48</w><h>136</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+ uses </panel_attributes><additional_attributes>10;150;10;10</additional_attributes></element></diagram>
